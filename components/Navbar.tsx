@@ -11,15 +11,16 @@ const Navbar = () => {
   const navLinks = [
     { name: "About", href: "/about" },
     { name: "People", href: "/people" },
+    { name: "Student", href: "/student" },
     { name: "Academics", href: "/academics" },
     { name: "Research", href: "/research" },
     { name: "Facilities", href: "/facilities" },
     { name: "BRTC - Expert Service", href: "/brtc" },
-    { name: "Outreach", href: "/outreach" },
+    { name: "Register", href: "/register" },
   ];
 
   return (
-    <nav className="bg-white border-b border-teal-900 sticky top-0 z-50 shadow-sm">
+    <nav className="bg-white  sticky top-0 z-50 shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16 items-center">
           {/* Logo */}

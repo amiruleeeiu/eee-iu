@@ -1,12 +1,20 @@
+"use client";
+
+import { motion } from "framer-motion";
 import { ExternalLink, Mail, Phone } from "lucide-react";
 
 const Footer = () => {
   return (
-    <footer className="px-2 md:px-12 bg-slate-950 text-white border-t border-gray-200">
+    <motion.footer className="px-2 md:px-12 bg-slate-950 text-white border-t border-gray-200">
       <div className="container mx-auto px-4 pb-3 pt-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Contact Information */}
-          <div>
+          <motion.div
+            initial={{ opacity: 0, x: -10 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: false, amount: 0.1 }}
+            transition={{ duration: 0.5, delay: 0.5 }}
+          >
             <h2 className="text-xl font-bold mb-4">Contact</h2>
             <address className="not-italic text-sm">
               <p className="mb-2">
@@ -40,10 +48,15 @@ const Footer = () => {
                 </a>
               </div>
             </address>
-          </div>
+          </motion.div>
 
           {/* Follow Us & Links */}
-          <div>
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: false, amount: 0.1 }}
+            transition={{ duration: 0.5, delay: 0.5 }}
+          >
             <h2 className="text-xl font-bold mb-4">Important Links</h2>
 
             <ul className="space-y-4">
@@ -63,10 +76,16 @@ const Footer = () => {
                 </a>
               </li>
             </ul>
-          </div>
+          </motion.div>
 
           {/* Map Section */}
-          <div className="col-span-1 md:col-span-2">
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: false, amount: 0.1 }}
+            transition={{ duration: 0.5, delay: 0.5 }}
+            className="col-span-1 md:col-span-2"
+          >
             <h2 className="text-xl font-bold mb-4">Find us on Map</h2>
 
             <div className="w-full mb-4">
@@ -88,7 +107,7 @@ const Footer = () => {
                 <ArrowRight size={20} />
               </button>
             </div> */}
-          </div>
+          </motion.div>
         </div>
 
         {/* Copyright */}
@@ -99,7 +118,7 @@ const Footer = () => {
           </p>
         </div>
       </div>
-    </footer>
+    </motion.footer>
   );
 };
 
