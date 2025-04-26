@@ -1,7 +1,8 @@
 "use client";
-import { Menu, X } from "lucide-react"; // for hamburger icons
+import { Menu, X } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
+import AnimatedDropdown from "./motion/AnimatedDropdown";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -9,13 +10,13 @@ const Navbar = () => {
   const toggleMenu = () => setMenuOpen(!menuOpen);
 
   const navLinks = [
+    { name: "Home", href: "/" },
     { name: "About", href: "/about" },
     { name: "People", href: "/people" },
     { name: "Student", href: "/student" },
     { name: "Academics", href: "/academics" },
     { name: "Research", href: "/research" },
     { name: "Facilities", href: "/facilities" },
-    { name: "BRTC - Expert Service", href: "/brtc" },
     { name: "Register", href: "/register" },
   ];
 
@@ -39,6 +40,7 @@ const Navbar = () => {
                 {link.name}
               </Link>
             ))}
+            <AnimatedDropdown />
           </div>
 
           {/* Mobile Hamburger */}

@@ -1,8 +1,12 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
+import female from "../../public/assets/female.jpg";
+import male from "../../public/assets/male.jpg";
 
 function StudentCard({ data }) {
-  const { name, designation, profile_picture, index } = data || {};
+  const { name, designation, profile_picture, index, gender } = data || {};
+
+  const defaultImgUrl = gender == "male" ? male : female;
   return (
     <motion.div
       initial={{ opacity: 0, x: -10 }}
@@ -12,7 +16,7 @@ function StudentCard({ data }) {
       className="relative h-[250px] group rounded-md shadow-lg overflow-hidden gap-2"
     >
       <Image
-        src={profile_picture}
+        src={profile_picture || defaultImgUrl}
         alt="student"
         className="w-full object-cover h-[200px] group-hover:scale-120 duration-700"
         fill

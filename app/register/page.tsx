@@ -1,5 +1,6 @@
 "use client";
 
+import AnimatedTabs from "@/components/AnimatedTabs";
 import Input from "@/components/form/input";
 import { useGetUsersQuery, usePostUserMutation } from "@/services/apiSlice";
 import { Controller, FormProvider, useForm } from "react-hook-form";
@@ -43,8 +44,11 @@ export default function RegisterPage() {
     <div className="min-h-screen bg-gray-50 py-10 px-4 flex justify-center items-center">
       <div className="bg-white p-8 rounded-2xl shadow-md w-full max-w-5xl">
         <h1 className="text-2xl font-semibold text-center mb-6">Register</h1>
+
         <FormProvider {...methods}>
           <form onSubmit={handleSubmit(onSubmit)}>
+            <AnimatedTabs />
+
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {/* Full Name */}
 

@@ -1,5 +1,6 @@
 "use client";
 
+import TypewriterTitle from "@/components/motion/TypewriterTitle";
 import { useGetUsersQuery } from "@/services/apiSlice";
 import StudentCard from "./StudentCard";
 
@@ -21,7 +22,10 @@ function Student() {
   }
   return (
     <div className="my-2 md:my-6 mx-2 md:mx-12 lg:mx-20">
-      <h1 className="text-2xl font-bold text-center mt-10">Students</h1>
+      <div className="flex flex-col justify-center items-center">
+        <TypewriterTitle text="Students" />
+        <p className="h-1 text-center  w-32 bg-yellow-500"></p>
+      </div>
       {content}
     </div>
   );

@@ -1,15 +1,20 @@
 "use client";
 
+import { cn } from "@/lib/utils";
 import { AnimatePresence, motion } from "framer-motion";
 import { FC } from "react";
 
 interface TypewriterTitleProps {
   text: string;
+  className?: string;
 }
 
-const TypewriterTitle: FC<TypewriterTitleProps> = ({ text }) => {
+const TypewriterTitle: FC<TypewriterTitleProps> = ({ text, className }) => {
   return (
-    <div style={{ fontSize: "2rem", fontWeight: 700 }}>
+    <div
+      style={{ fontSize: "2rem", fontWeight: 700 }}
+      className={cn(className)}
+    >
       <AnimatePresence mode="wait">
         <div>
           {Array.from(text).map((letter, index) => (
