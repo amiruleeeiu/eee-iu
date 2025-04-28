@@ -2,17 +2,29 @@
 import { Menu, X } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
-import AnimatedDropdown from "./motion/AnimatedDropdown";
+import AnimatedDropdown, { Option } from "./motion/AnimatedDropdown";
+
+interface NavLinkType {
+  name: string;
+  href?: string;
+  children?: Array<Option>;
+}
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   const toggleMenu = () => setMenuOpen(!menuOpen);
 
-  const navLinks = [
+  const navLinks: Array<NavLinkType> = [
     { name: "Home", href: "/" },
     { name: "About", href: "/about" },
-    { name: "People", href: "/people" },
+    {
+      name: "People",
+      children: [
+        { name: "Teacher", href: "teacher" },
+        { name: "Officers & Stuff", href: "officers-stuff" },
+      ],
+    },
     { name: "Student", href: "/student" },
     { name: "Academics", href: "/academics" },
     { name: "Research", href: "/research" },
@@ -31,16 +43,27 @@ const Navbar = () => {
 
           {/* Desktop Menu */}
           <div className="hidden md:flex space-x-6 font-semibold text-sm text-teal-900">
-            {navLinks.map((link) => (
-              <Link
-                key={link.name}
-                href={link.href}
-                className="hover:underline"
-              >
-                {link.name}
-              </Link>
-            ))}
-            <AnimatedDropdown />
+            {navLinks.map((link) => {
+              if (link?.href) {
+                return (
+                  <Link
+                    key={link.name}
+                    href={link.href}
+                    className="hover:underline"
+                  >
+                    {link.name}
+                  </Link>
+                );
+              } else if (link.children) {
+                return (
+                  <AnimatedDropdown
+                    name={link.name}
+                    key={link.name}
+                    options={link.children}
+                  />
+                );
+              }
+            })}
           </div>
 
           {/* Mobile Hamburger */}
