@@ -1,5 +1,6 @@
 "use client";
 import { Menu, X } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import AnimatedDropdown, { Option } from "./motion/AnimatedDropdown";
@@ -33,16 +34,45 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className="bg-white  sticky top-0 z-50 shadow-sm">
+    <nav className="bg-gray-100  sticky top-0 z-50 shadow-sm ">
+      <div
+        className="w-full bg-navy-900 py-3 flex justify-between items-center px-20"
+        style={{ backgroundColor: "#0a1f3d" }}
+      >
+        <div className="flex gap-3 items-center">
+          <Image
+            src={"/assets/logo.png"}
+            width={50}
+            height={50}
+            alt="Islamic University"
+            className="border border-white rounded-xs"
+          />
+          <h1 className="text-xl tracking-wide md:text-xl lg:text-xl font-semibold text-center text-white">
+            Islamic University, Bangladesh
+          </h1>
+        </div>
+
+        <h1 className="text-xl tracking-wide md:text-xl lg:text-2xl font-semibold text-center text-yellow-100">
+          Department of{" "}
+          <span className="text-white">
+            Electrical and Electronic Engineering
+          </span>
+        </h1>
+      </div>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between h-16 items-center">
+        <div className="flex justify-between items-center">
           {/* Logo */}
-          <Link href="/" className="flex items-center space-x-2">
-            {/* <img src="/logo.png" alt="EEE Logo" className="h-10 w-auto" /> */}
-          </Link>
+
+          {/* <img src="/logo.png" alt="EEE Logo" className="h-10 w-auto" /> */}
+          <div className="py-3">
+            {/* <p className="text-sm italic"> Department of </p>
+            <p className="text-2xl font-bold">
+              Electrical & Electronic Engineering
+            </p> */}
+          </div>
 
           {/* Desktop Menu */}
-          <div className="hidden md:flex space-x-6 font-semibold text-sm text-teal-900">
+          <div className="hidden py-3 md:flex space-x-6 font-semibold text-sm text-teal-900">
             {navLinks.map((link) => {
               if (link?.href) {
                 return (
